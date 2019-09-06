@@ -3,7 +3,7 @@ var express = require('express'),
   port = process.env.PORT || 3000;
 
 mongoose = require('mongoose'),
-  Task = require('./api/models/AWTPModel'),
+  Client = require('./api/models/AWTPModel'),
   bodyParser = require('body-parser');
 
 mongoose.Promise = global.Promise;
