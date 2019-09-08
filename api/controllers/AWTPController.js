@@ -3,39 +3,39 @@
 var mongoose = require('mongoose'),
   Client = mongoose.model('Clients');
 
-exports.list_all_clients = function(req, res) {
-  Client.find({}, function(err, client) {
+exports.list_all_clients = (req, res) => {
+  Client.find({}, (err, client) => {
     if (err) res.send(err);
     res.json(client);
   });
 };
 
-exports.create_a_client = function(req, res) {
+exports.create_a_client = (req, res) => {
   var new_client = new Client(req.body);
-  new_client.save(function(err, client) {
+  new_client.save((err, client) => {
     if (err) res.send(err);
     res.json(client);
   });
 };
 
-exports.read_a_client = function(req, res) {
-  Client.findById(req.params.clientId, function(err, client) {
+exports.read_a_client = (req, res) => {
+  Client.findById(req.params.clientId, (err, client) => {
     if (err) res.send(err);
     res.json(client);
   });
 };
 
-exports.update_a_client = function(req, res) {
-  Client.findOneAndUpdate({_id: req.params.clientId}, req.body, {new: true}, function(err, client) {
+exports.update_a_client = (req, res) => {
+  Client.findOneAndUpdate({_id: req.params.clientId}, req.body, {new: true}, (err, client) => {
     if (err) res.send(err);
     res.json(client);
   });
 };
 
-exports.delete_a_client = function(req, res) {
+exports.delete_a_client = (req, res) => {
   Client.remove({
     _id: req.params.clientId
-  }, function(err, client) {
+  }, (err, client) => {
     if (err) res.send(err);
     res.json({ message: 'Client successfully deleted' });
   });
