@@ -33,9 +33,7 @@ exports.update_a_client = (req, res) => {
 };
 
 exports.delete_a_client = (req, res) => {
-  Client.remove({
-    _id: req.params.clientId
-  }, (err, client) => {
+  Client.remove({_id: req.params.clientId}, (err, client) => {
     if (err) res.send(err);
     res.json({ message: 'Client successfully deleted' });
   });
